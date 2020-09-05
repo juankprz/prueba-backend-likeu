@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/', function () {
+    return response()->json([
+        'status'=>'ok',
+         'msj'=>'Bienvenid@ a nuestra API , para mayor conocimiento de nuestra API  favor dirigirse a la ruta '.env('APP_URL')
+ ], 200);
+ });
+Route::post('login', 'Api\LoginController@iniciarsesion');
+Route::post('logout', 'Api\LoginController@cerrarsesion');
+
+Route::group(['middleware' => ['jwt.autenticacion']], function() {
+    Route::get('/test', function () {
+         return response()->json([
+            'usuarios'=>User::all()
+            ]
+            , 200);
+    });
 });
