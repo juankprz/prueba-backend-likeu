@@ -1,0 +1,108 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Test Likeu ",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000"
+        }
+    ],
+    "paths": {
+        "/api/": {
+            "get": {
+                "tags": [
+                    "Path"
+                ],
+                "summary": "Mostrar ejecucion API",
+                "responses": {
+                    "200": {
+                        "description": "API corriendo con exito."
+                    },
+                    "500": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Autentificación"
+                ],
+                "summary": "Metodo que tiene como funcionalidad autentificacerse en el sistema",
+                "description": "Retorna datos de autentificacion validos",
+                "operationId": "getProjectById",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Correo electronico del usuario previamente registrado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Correo electronico del usuario previamente registrado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Autentificación"
+                ],
+                "summary": "Metodo disponible para cerrar sesion dentro de la api",
+                "operationId": "App\\Http\\Controllers\\Api\\LoginController::cerrarsesion",
+                "responses": {
+                    "200": {
+                        "description": " sesion cerrada"
+                    },
+                    "500": {
+                        "description": "Ha ocurrido un error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}

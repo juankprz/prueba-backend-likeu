@@ -14,6 +14,7 @@ use App\User;
 |
 */
 
+
 Route::get('/', function () {
     return response()->json([
         'status'=>'ok',
