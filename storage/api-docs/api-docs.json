@@ -129,8 +129,8 @@
                 "tags": [
                     "Clientes"
                 ],
-                "summary": "Metodo que tiene como funcionalidad visualizar una  agenda creada dentro del sistema",
-                "description": "Este metodo retorna una de  las agendas registradas en base de datos",
+                "summary": "Metodo que tiene como funcionalidad visualizar un cliente creado dentro del sistema",
+                "description": "Metodo que tiene como funcionalidad visualizar un cliente creado dentro del sistema",
                 "operationId": "App\\Http\\Controllers\\Api\\CustomerController::show",
                 "parameters": [
                     {
@@ -199,7 +199,7 @@
                     "Agendas"
                 ],
                 "summary": "Metodo que tiene como funcionalidad crear una  agenda  dentro del sistema",
-                "description": "Este metodo retorna una de  las agendas registradas en base de datos",
+                "description": "Metodo que tiene como funcionalidad crear una  agenda  dentro del sistema",
                 "operationId": "App\\Http\\Controllers\\Api\\DiaryController::store",
                 "parameters": [
                     {
@@ -463,7 +463,7 @@
         "securitySchemes": {
             "apiAuth": {
                 "type": "http",
-                "description": "Login with email and password to get the authentication token",
+                "description": "Genera el token con el metodo de iniciar sesion",
                 "name": "Token based Based",
                 "in": "header",
                 "bearerFormat": "JWT",

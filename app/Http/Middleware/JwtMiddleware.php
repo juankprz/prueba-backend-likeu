@@ -20,7 +20,7 @@ class JwtMiddleware extends BaseMiddleware
     /**
  * @OA\SecurityScheme(
  *     type="http",
- *     description="Login with email and password to get the authentication token",
+ *     description="Genera el token con el metodo de iniciar sesion",
  *     name="Token based Based",
  *     in="header",
  *     scheme="bearer",

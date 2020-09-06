@@ -148,8 +148,8 @@ class CustomerController extends Controller
      * @OA\get(
      *      path="/api/visualizar/cliente/{dni}",
      *      tags={"Clientes"},
-     *      summary="Metodo que tiene como funcionalidad visualizar una  agenda creada dentro del sistema",
-     *      description="Este metodo retorna una de  las agendas registradas en base de datos",
+     *      summary="Metodo que tiene como funcionalidad visualizar un cliente creado dentro del sistema",
+     *      description="Metodo que tiene como funcionalidad visualizar un cliente creado dentro del sistema",
      *  @OA\Parameter(
      *          name="dni",
      *          description="Digite el dni del cliente",

@@ -44,7 +44,7 @@ class DiaryController extends Controller
      *      path="/api/registrar/agenda",
      *      tags={"Agendas"},
      *      summary="Metodo que tiene como funcionalidad crear una  agenda  dentro del sistema",
-     *      description="Este metodo retorna una de  las agendas registradas en base de datos",
+     *      description="Metodo que tiene como funcionalidad crear una  agenda  dentro del sistema",
      *  @OA\Parameter(
      *          name="asunto",
      *          description="Escriba el asunto que se va registrar",

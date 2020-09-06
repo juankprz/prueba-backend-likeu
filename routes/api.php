@@ -18,7 +18,7 @@ use App\User;
 Route::get('/', function () {
     return response()->json([
         'status'=>'ok',
-         'msj'=>'Bienvenid@ a nuestra API , para mayor conocimiento de nuestra API  favor dirigirse a la ruta '.env('APP_URL')
+         'msj'=>'Bienvenid@ a nuestra API , para mayor conocimiento de nuestra API  favor dirigirse a la ruta '."/api/documentation"
  ], 200);
  });
 Route::post('login', 'Api\LoginController@iniciarsesion');
