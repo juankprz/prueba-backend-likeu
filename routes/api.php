@@ -28,7 +28,14 @@ Route::group(['middleware' => ['jwt.autenticacion']], function() {
     Route::get('/test', function () {
          return response()->json([
             'usuarios'=>User::all()
-            ]
-            , 200);
+            ], 200);
     });
+    Route::post('registrar/cliente', 'Api\CustomerController@store');
+    Route::get('visualizar/clientes', 'Api\CustomerController@index');
+    Route::get('visualizar/cliente/{dni}', 'Api\CustomerController@show');
+    Route::post('registrar/agenda', 'Api\DiaryController@store');
+    Route::get('visualizar/agenda/{id}', 'Api\DiaryController@show');
+    Route::get('visualizar/agendas/', 'Api\DiaryController@index');
+    Route::put('actualizar/agenda/{id}', 'Api\DiaryController@update');
 });
+

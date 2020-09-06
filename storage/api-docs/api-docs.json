@@ -10,6 +10,372 @@
         }
     ],
     "paths": {
+        "/api/visualizar/clientes": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Metodo que tiene como funcionalidad visualizar todos los clientes creados dentro del sistema",
+                "description": "Metodo que tiene como funcionalidad visualizar todos los clientes creados dentro del sistema",
+                "operationId": "App\\Http\\Controllers\\Api\\CustomerController::index",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los clientes"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/registrar/cliente": {
+            "post": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Metodo que tiene como funcionalidad crear un  cliente  dentro del sistema",
+                "description": "Metodo que tiene como funcionalidad crear un  cliente  dentro del sistema",
+                "operationId": "App\\Http\\Controllers\\Api\\CustomerController::store",
+                "parameters": [
+                    {
+                        "name": "cedula",
+                        "in": "query",
+                        "description": "Escriba el numero de cedula  que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nombre",
+                        "in": "query",
+                        "description": "Escriba el nombre que se va registrar, ",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "apellido",
+                        "in": "query",
+                        "description": "Escriba el apellido que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fecha_nacimiento",
+                        "in": "query",
+                        "description": "Escriba la fecha de nacimiento  que se va registrar, por ej: 1996-06-28",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "correo",
+                        "in": "query",
+                        "description": "Escriba el correo que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "telefono",
+                        "in": "query",
+                        "description": "Escriba el telefono que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las agendas"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/visualizar/cliente/{dni}": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Metodo que tiene como funcionalidad visualizar una  agenda creada dentro del sistema",
+                "description": "Este metodo retorna una de  las agendas registradas en base de datos",
+                "operationId": "App\\Http\\Controllers\\Api\\CustomerController::show",
+                "parameters": [
+                    {
+                        "name": "dni",
+                        "in": "path",
+                        "description": "Digite el dni del cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar cliente a quien le pertenece el numero dni"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/visualizar/agendas": {
+            "get": {
+                "tags": [
+                    "Agendas"
+                ],
+                "summary": "Metodo que tiene como funcionalidad visualizar todas las agendas creadas dentro del sistema",
+                "description": "Este metodo retorna todas las agendas registradas en base de datos",
+                "operationId": "App\\Http\\Controllers\\Api\\DiaryController::index",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las agendas"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/registrar/agenda": {
+            "post": {
+                "tags": [
+                    "Agendas"
+                ],
+                "summary": "Metodo que tiene como funcionalidad crear una  agenda  dentro del sistema",
+                "description": "Este metodo retorna una de  las agendas registradas en base de datos",
+                "operationId": "App\\Http\\Controllers\\Api\\DiaryController::store",
+                "parameters": [
+                    {
+                        "name": "asunto",
+                        "in": "query",
+                        "description": "Escriba el asunto que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fecha_hora",
+                        "in": "query",
+                        "description": "Escriba el asunto que se va registrar, ",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cliente_dni",
+                        "in": "query",
+                        "description": "Escriba el asunto que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "estado_id",
+                        "in": "query",
+                        "description": "Escriba el estado_id que se va registrar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las agendas"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/visualizar/agenda/{id}": {
+            "get": {
+                "tags": [
+                    "Agendas"
+                ],
+                "summary": "Metodo que tiene como funcionalidad visualizar una  agenda creada dentro del sistema",
+                "description": "Este metodo retorna una de  las agendas registradas en base de datos",
+                "operationId": "App\\Http\\Controllers\\Api\\DiaryController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Digite el id de la agenda",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar la agenda con el id digitado"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/actualizar/agenda/{id}": {
+            "put": {
+                "tags": [
+                    "Agendas"
+                ],
+                "summary": "Metodo que tiene como funcionalidad actualizar una de las agendas creadas dentro del sistema",
+                "description": "Metodo que tiene como funcionalidad actualizar una de las agendas creadas dentro del sistema",
+                "operationId": "App\\Http\\Controllers\\Api\\DiaryController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Digite el id de la agenda a actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "asunto",
+                        "in": "query",
+                        "description": "Nuevo asunto para la agenda",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fecha_hora",
+                        "in": "query",
+                        "description": "Nueva fecha y hora  para la agenda , por ej: 2020-10-31 13:07:19",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cliente_dni",
+                        "in": "query",
+                        "description": "Nuevo cliente_dni  para la agenda tenga en cuenta que el dni debe pertenecer a un cliente registrado ",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "estado_id",
+                        "in": "query",
+                        "description": "Nuevo estado_id  para la agenda tenga en cuenta que el id debe pertenecer a un estado registrado ",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las agendas"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
         "/api/": {
             "get": {
                 "tags": [
