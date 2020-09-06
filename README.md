@@ -13,12 +13,12 @@ https://getcomposer.org/
 https://nodejs.org/es/
 ```
 
-_Para empezar se debe  clonar  el proyecto desde el repositorio de codigo  Asi _
+Para empezar se debe  clonar  el proyecto desde el repositorio de codigo  Asi 
 
 ```
 git clone https://github.com/juankprz/prueba-backend-likeu.git
 ```
-_Luego acceder al directorio donde se descargo el proyecto, luego instalar las dependencias  Asi: _
+Luego acceder al directorio donde se descargo el proyecto, luego instalar las dependencias  Asi: 
 
 ```
 composer install
@@ -26,5 +26,32 @@ composer install
 npm install
 npm run dev
 ```
+Comandos de configuracion 
+```
+cp .env.example  .env
+php artisan migrate --seed
+php artisan key:generate
+php artisan l5-swagger:generate 
+php artisan  jwt:secret 
+```
+Verificar si en el archivo de configuracion se creo la variable jwt secret de lo contrario agregar en .env
+```
+JWT_SECRET=
+```
 
+Las rutas de documentacion en entorno local son
+```
+http://127.0.0.1:8000/api/documentation
+```
 
+los accesos de usuarios son:
+
+```
+email: admin1@likeu.test
+password:likeu@123
+
+email: admin2@likeu.test
+password:likeu@123
+```
+
+para mas informacion puede mirar los archivos seeder
